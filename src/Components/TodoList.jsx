@@ -3,7 +3,7 @@ import './TodoList.css';
 //initialization of states
 const TodoList = () => {
     const [todos,setTodos]=useState([]); //the todos state will represent a list of to do items
-    const [headingInput, setHeadingInut] = useState(''); // headingInput represents the value entered by the user for adding a new to do item.
+    const [headingInput, setHeadingInput] = useState(''); // headingInput represents the value entered by the user for adding a new to do item.
     const [listInputs,setListInputs] = useState({}); //This state will hold the value of input fields for each todo item individually.
     
     const handleAddTodo = () => {
@@ -33,7 +33,7 @@ const TodoList = () => {
     <>
       <div className="todo-container">
         <h1 className="title">My Learning Journey Tracker</h1>
-        <h3 className="subtitle">Add your lesson</h3>
+        <h3 className="subtitle">Add a Skill Category</h3>
         <div className="input-container">
           <input
             type="text"
@@ -41,7 +41,7 @@ const TodoList = () => {
             placeholder="Enter your next planed course"
             value={headingInput}
             // Adding onChange event handler to update headingInput state
-            onChange={(e) => {setHeadingInut(e.target.value);}}
+            onChange={(e) => {setHeadingInput(e.target.value);}}
           />
           <button className="add-list-button" onClick={handleAddTodo}>Add</button>
         </div>
@@ -51,7 +51,7 @@ const TodoList = () => {
                     <div key={index} className="todo-card">
                         <div className="heading_todo">
                             <h3>{todo.heading}</h3>
-                            <button className="delete-button-heading" onClick={() => handleDeleteTodo(index)}>Delete Heading</button>
+                            <button className="delete-button-heading" onClick={() => handleDeleteTodo(index)}>Delete</button>
                         </div>
                         <ul>
                             {todo.lists.map((list, listIndex) => (
@@ -64,11 +64,11 @@ const TodoList = () => {
                             <input
                                 type="text"
                                 className="list-input"
-                                placeholder="Add List"
+                                placeholder="Add A skill or Technology"
                                 value={listInputs[index] || ''}
                                 onChange={(e) => handleListInputChange(index, e.target.value)}
                             />
-                            <button className="add-list-button" onClick={() => handleAddList(index)}>Add List</button>
+                            <button className="add-list-button" onClick={() => handleAddList(index)}>Add</button>
                         </div>
                     </div>
                 ))}
